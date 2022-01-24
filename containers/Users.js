@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import {
   Text,
-  SafeAreaView,
+  // SafeAreaView,
   View,
   TouchableOpacity,
   StyleSheet,
@@ -11,6 +11,7 @@ import {
   Button,
 } from "react-native";
 import axios from "axios";
+import SafeAreaView from "react-native-safe-area-view";
 
 const Users = ({ navigation }) => {
   const [users, setUsers] = useState([]);
@@ -58,36 +59,38 @@ const Users = ({ navigation }) => {
   };
   return (
     <SafeAreaView>
-      <View style={styles.wrapper}>
-        <Text style={styles.main_header}>User's List</Text>
-        <StatusBar style="auto" />
-        {loading ? (
-          <ActivityIndicator size="large" />
-        ) : !users.length ? (
-          <Text>No Users Found</Text>
-        ) : (
-          users.map((user) => {
-            return (
-              <TouchableOpacity
-                key={user.id}
-                style={styles.container}
-                onPress={() => alertItemName(user)}
-              >
-                <Text style={styles.text}>{user.name}</Text>
-              </TouchableOpacity>
-            );
-          })
-        )}
-      </View>
-      <Button
-        title="Go to About Us"
-        onPress={() => navigation.navigate("About")}
-      />
-      {/* <Button title="Go back" onPress={() => navigation.goBack()} /> */}
-      {/* <Button
+      <View>
+        <View style={styles.wrapper}>
+          <Text style={styles.main_header}>User's List</Text>
+          <StatusBar style="auto" />
+          {loading ? (
+            <ActivityIndicator size="large" />
+          ) : !users.length ? (
+            <Text>No Users Found</Text>
+          ) : (
+            users.map((user) => {
+              return (
+                <TouchableOpacity
+                  key={user.id}
+                  style={styles.container}
+                  onPress={() => alertItemName(user)}
+                >
+                  <Text style={styles.text}>{user.name}</Text>
+                </TouchableOpacity>
+              );
+            })
+          )}
+        </View>
+        <Button
+          title="Go to About Us"
+          onPress={() => navigation.navigate("About")}
+        />
+        {/* <Button title="Go back" onPress={() => navigation.goBack()} /> */}
+        {/* <Button
         title="Go back to first screen in stack"
         onPress={() => navigation.popToTop()}
       /> */}
+      </View>
     </SafeAreaView>
   );
 };
