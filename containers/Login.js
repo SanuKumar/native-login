@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import {
   View,
   Text,
-  // SafeAreaView,
+  SafeAreaView,
   StyleSheet,
   TextInput,
   Button,
   Alert,
 } from "react-native";
 import axios from "axios";
-import SafeAreaView from "react-native-safe-area-view";
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import {
   Text,
-  // SafeAreaView,
+  SafeAreaView,
   View,
   TouchableOpacity,
   StyleSheet,
@@ -11,7 +11,6 @@ import {
   Button,
 } from "react-native";
 import axios from "axios";
-import SafeAreaView from "react-native-safe-area-view";
 
 const Users = ({ navigation }) => {
   const [users, setUsers] = useState([]);
